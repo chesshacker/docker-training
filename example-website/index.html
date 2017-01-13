@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Served by Docker</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var giphyRandomUrl= 'http://api.giphy.com/v1/gifs/random'
+        var randomQuery = {
+          api_key: 'dc6zaTOxFJmzC',
+          tag: 'high five'
+        };
+        $.get(giphyRandomUrl, randomQuery, function(response) {
+          var status = _.get(response, 'meta.status');
+          if (status == 200) {
+            var imageUrl = _.get(response, 'data.image_url');
+            var img = $('<img>', { src: imageUrl });
+            console.log('displaying image: ' + imageUrl);
+            $('body').append(img);
+          } else {
+            console.error('unexpected status: ' + status);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

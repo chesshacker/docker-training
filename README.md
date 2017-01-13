@@ -19,13 +19,29 @@ into any errors, reference the "Getting Started Tutorial" for your platform.
 Windows Settings. On Mac OS X, `/Users` is automatically shared, so you are all
 set.
 
+  If you are on a corporate sort of laptop, the vEthernet (DockerNat) network
+  could be classified as a Public network, and firewall rules might prevent
+  you from sharing your drive. You can change the network category using
+  PowerShell (run as Administrator):
+
+  ```
+  Get-NetConnectionProfile
+  # Note the InterfaceIndex for vEthernet (DockerNat)
+  Set-NetConnectionProfile -InterfaceIndex <index> -NetworkCategory Private
+  Get-NetConnectionProfile
+  # You should see the category was changed from Public to Private
+  ```
+
 ## Download Images
 
 Once you have Docker installed, and preferably when you have a good internet
 connection, run the following:
 
 ```
-# TODO: decide what images will be used for our exercises
+docker pull alpine
+docker pull nginx
+docker pull node
+docker pull python:3-alpine
 ```
 
 ## Introduction to Docker
