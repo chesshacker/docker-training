@@ -42,6 +42,7 @@ docker pull alpine
 docker pull nginx
 docker pull node
 docker pull python:3-alpine
+docker pull openjdk:jre-alpine
 ```
 
 ## Introduction to Docker

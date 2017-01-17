@@ -63,6 +63,10 @@ curl -H "Content-Type: application/json" -X POST \
 curl -X GET http://localhost:3000/heroes
 ```
 
+## Exercise
+
+Use your Docker skills to run the simple spring-boot app.
+
 ## Linking Containers
 
 ```
