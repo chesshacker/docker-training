@@ -65,7 +65,7 @@ curl -X GET http://localhost:3000/heroes
 
 ## Exercise
 
-Use your Docker skills to run the simple spring-boot app.
+Use your Docker skills to run the spring-boot app.
 
 ## Linking Containers
 
@@ -80,4 +80,19 @@ httpie get localhost:3000/heroes
 docker rm -f <container name>
 docker run -d --name example example-api
 docker run --rm --link example httpie get example:3000/heroes
+```
+
+## Running Docker Compose and Named Volumes
+
+```
+cd wordpress
+docker-compose up
+# setup wordpress
+docker-compose down
+docker-compose up -d
+docker-compose logs -f
+docker-compose down
+docker volumes ls
+docker volumes rm wordpress_db_data
+docker-compose up
 ```
