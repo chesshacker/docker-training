@@ -45,6 +45,8 @@ docker pull python:3-alpine
 docker pull openjdk:jre-alpine
 docker pull mysql:5.7
 docker pull wordpress
+docker pull postgres
+docker pull ruby:2.4
 ```
 
 ## Introduction to Docker

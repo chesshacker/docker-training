@@ -63,7 +63,7 @@ curl -H "Content-Type: application/json" -X POST \
 curl -X GET http://localhost:3000/heroes
 ```
 
-## Exercise
+## Exercise 1
 
 Use your Docker skills to run the spring-boot app.
 
@@ -96,3 +96,8 @@ docker volumes ls
 docker volumes rm wordpress_db_data
 docker-compose up
 ```
+
+## Exercise 2
+
+Follow the [Compose and Rails Quickstart](https://docs.docker.com/compose/rails/)
+to create a Rails app with PostgreSQL.
