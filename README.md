@@ -17,6 +17,10 @@ into any errors, reference the "Getting Started Tutorial" for your platform.
   Note for Windows 7 or 8: you may have to use [Docker Toolbox][dockertoolbox]
   instead of Docker for Windows.
 
+  Tip for Windows 7: If your install fails because it can't create a network
+  adapter, you may find during the install that checking "Install VirtualBox
+  with NDIS5 instead of NDIS6" helps to solve the problem.
+
 2. Verify Docker was installed correctly by running:
 
   ```
