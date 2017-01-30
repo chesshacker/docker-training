@@ -11,25 +11,33 @@ our class.
 1. Download and install [Docker for your platform of choice][docker]. If you run
 into any errors, reference the "Getting Started Tutorial" for your platform.
 
-  Note: Windows users may be prompted to enable Hyper-V and required to restart.
+  Note for Windows 10: you may be prompted to enable Hyper-V and required to
+  restart.
 
-2. Verify it Docker was installed correctly by running `docker run --rm hello-world`
+  Note for Windows 7 or 8: you may have to use [Docker Toolbox][dockertoolbox]
+  instead of Docker for Windows.
+
+2. Verify Docker was installed correctly by running:
+
+  ```
+  docker run --rm hello-world
+  ```
 
 3. Windows users must also [share a local drive][drive] in the Docker for
 Windows Settings. On Mac OS X, `/Users` is automatically shared, so you are all
 set.
 
   If you are on a corporate sort of laptop, the vEthernet (DockerNat) network
-  could be classified as a Public network, and firewall rules might prevent
-  you from sharing your drive. You can change the network category using
-  PowerShell (run as Administrator):
+  could be classified as a Public network, and firewall rules might prevent you
+  from sharing your drive. You can change the network category using the local
+  security policy editor (Windows-R, run secpol.msc), select "Network List
+  Manager Policies" on the left, then double-click "Unidentified Networks",
+  change "Location type" to Private, and apply changes.
+
+  To verify your shared drive is setup on Windows, run:
 
   ```
-  Get-NetConnectionProfile
-  # Note the InterfaceIndex for vEthernet (DockerNat)
-  Set-NetConnectionProfile -InterfaceIndex <index> -NetworkCategory Private
-  Get-NetConnectionProfile
-  # You should see the category was changed from Public to Private
+  docker run --rm -v c:/Users:/data alpine ls /data
   ```
 
 ## Download Images
@@ -141,3 +149,4 @@ completion][bash]. PowerShell users may want to setup [posh][posh].
 [dockerbook]: https://www.dockerbook.com/
 [dockerdocs]: https://docs.docker.com/
 [classes]: https://training.docker.com/category/self-paced-online
+[dockertoolbox]: https://docs.docker.com/toolbox/toolbox_install_windows/
