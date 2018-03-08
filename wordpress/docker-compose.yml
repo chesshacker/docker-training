@@ -24,3 +24,7 @@ services:
        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
     db_data:
+networks:
+  default:
+    external:
+      name: bridge
